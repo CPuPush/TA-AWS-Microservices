@@ -2,7 +2,7 @@ const {dokter} = require('../../../models');
 
 module.exports = async (req, res) => {
   try {
-    const status = req.query.status || [];
+    const status = req.body.status || [];
     const sqlInject = {
       attributes: ['id', 'nama', 'email', 'jenis_kelamin', 'alamat', 'no_str', 'role', 'status']
     }

@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/pasien', pasienRouter);
 app.use('/dokter', dokterRouter);
-app.use('/admin', adminRouter)
+app.use('/admin', adminRouter);
 app.use('/refresh-token', refreshTokenRouter);
 
 module.exports = app;

@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
 
     return res.status(200).json({
       status: 'success',
-      message: 'refresh token admin deleted'
+      message: 'refresh token dokter deleted'
     })
   } catch (error) {
     return res.status(500).json(error);
