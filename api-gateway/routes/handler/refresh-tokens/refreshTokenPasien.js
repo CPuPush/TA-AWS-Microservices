@@ -5,9 +5,10 @@ const {
   JWT_SECRET,
   JWT_SECRET_REFRESH_TOKEN,
   JWT_ACCESS_TOKEN_EXPIRED,
+  JWT_REFRESH_TOKEN_EXPIRED
 } = process.env;
 // call adapter
-const api = apiAdapter(URL_SERVICE_USER);
+// const api = apiAdapter(URL_SERVICE_USER);
 
 module.exports = async (req, res) => {
   try {
@@ -20,6 +21,8 @@ module.exports = async (req, res) => {
         message: 'invalid token'
       });
     }
+
+    // await api.get(`${URL_SERVICE_USER}/refresh-token/pasien`, {params: {refresh_token:refresh_token}})
 
     jwt.verify(refresh_token, JWT_SECRET_REFRESH_TOKEN, (err, decoded) => {
       if(err) {

@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const medicalController = require('./handler/medical-records');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/:tbMedicalRecordId', medicalController.getMedical);
+router.post('/data', medicalController.medical);
+router.post('/anamnesa/:tbMedicalRecordId',  medicalController.anamnesa);
+router.post('/pemeriksaan-fisik/:tbMedicalRecordId', medicalController.pemeriksaanFisik);
+router.post('/laboratorium/:tbMedicalRecordId', medicalController.laboratorium);
+router.post('/pemeriksaan-lainnya/:tbMedicalRecordId', medicalController.pemeriksaanLainnya);
+router.post('/kesimpulan/:tbMedicalRecordId', medicalController.kesimpulan);
+
 
 module.exports = router;
