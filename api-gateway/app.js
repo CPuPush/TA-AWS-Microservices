@@ -19,6 +19,6 @@ app.use(cors());
 
 app.use('/user', userRoute);
 app.use('/refresh-token', refreshTokenRoute);
-app.use('/medical-record');
+app.use('/medical-record', medicalRoute);
 
 module.exports = app;
