@@ -4,6 +4,7 @@ const v = new Validator();
 
 module.exports = async (req, res)=>{
   try {
+    const {pasien_id} = req.params;
     const {
       nama,
       jenis_kelamin,
@@ -13,7 +14,6 @@ module.exports = async (req, res)=>{
       no_rekam_medis,
       tgl_pemeriksaan,
       tujuan_pemeriksaan,
-      pasien_id
     } = req.body;
 
     const Schema = {
@@ -25,7 +25,6 @@ module.exports = async (req, res)=>{
       no_rekam_medis: "number|empty:false",
       tgl_pemeriksaan: "string|empty:false",
       tujuan_pemeriksaan: "string|empty:false",
-      pasien_id:"number|empty:false"
     }
 
     const validate = v.validate(req.body, Schema);
@@ -53,6 +52,17 @@ module.exports = async (req, res)=>{
     })
 
   } catch (error) { 
+    if(error.name === "SequelizeForeignKeyConstraintError"){
+      return res.status(400).json({
+        status: "error",
+        message: "foreign key invalid"
+      })
+    }else if(error.name === "SequelizeUniqueConstraintError") {
+      return res.status(400).json({
+        status: "error",
+        message: error.errors[0].message
+      })
+    }
     return res.status(500).json(error);
   }
 };
