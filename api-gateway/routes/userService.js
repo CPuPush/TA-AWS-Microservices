@@ -15,7 +15,7 @@ router.post('/pasien/logout', authentication, pasienController.logout);
 // ! DOKTER
 router.post('/dokter/register', dokterController.register);
 router.post('/dokter/login', dokterController.login);
-router.get('/dokter', dokterController.getDokterById);
+router.get('/dokter', authentication, dokterController.getDokterById);
 router.post('/dokter', dokterController.getAllDokter);
 router.post('/dokter/logout', authentication, dokterController.logout);
 
