@@ -6,6 +6,7 @@ const pemeriksaanLainnya = require('./pemeriksaanLainnya');
 const getMedical = require('./getMedical');
 const kesimpulan = require('./kesimpulan');
 const getMedicalByParamsRecMedis = require('./getMedicalByParamsRecMedis');
+const getMedicalByPasienId = require('./getMedicalByPasienId');
 
 module.exports= {
   medical,
@@ -15,5 +16,6 @@ module.exports= {
   pemeriksaanLainnya,
   getMedical,
   kesimpulan,
-  getMedicalByParamsRecMedis
+  getMedicalByParamsRecMedis,
+  getMedicalByPasienId
 }

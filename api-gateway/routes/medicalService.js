@@ -10,6 +10,9 @@ router.post('/pemeriksaan-fisik/:tbMedicalRecordId', medicalController.pemeriksa
 router.post('/laboratorium/:tbMedicalRecordId', medicalController.laboratorium);
 router.post('/pemeriksaan-lainnya/:tbMedicalRecordId', medicalController.pemeriksaanLainnya);
 router.post('/kesimpulan/:tbMedicalRecordId', medicalController.kesimpulan);
+router.get('/:tbMedicalRecordId', medicalController.getMedical)
+
+router.get('/data/medical', authentication, medicalController.getMedicalByPasienId);
 
 
 

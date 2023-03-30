@@ -3,6 +3,8 @@ const router = express.Router();
 const medicalController = require('./handler/medical-records');
 
 router.get('/:tbMedicalRecordId', medicalController.getMedical);
+router.get('/data/medical/:pasien_id', medicalController.getMedicalByPasienId);
+
 router.post('/data/:pasien_id', medicalController.medical);
 router.post('/anamnesa/:tbMedicalRecordId',  medicalController.anamnesa);
 router.post('/pemeriksaan-fisik/:tbMedicalRecordId', medicalController.pemeriksaanFisik);
