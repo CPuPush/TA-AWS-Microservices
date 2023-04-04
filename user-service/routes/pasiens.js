@@ -8,4 +8,7 @@ router.get('/:id',  pasienController.getUserById);
 router.get('/', pasienController.getAllPasien);
 router.post('/logout', pasienController.logout);
 
+// give auth to dokter
+router.post('/access-to-dokter/:pasienId', pasienController.giveAuth);
+router.delete('/delete-access-to-dokter/:pasienId', pasienController.deleteAuth);
 module.exports = router;

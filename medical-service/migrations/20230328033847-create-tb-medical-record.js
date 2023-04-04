@@ -43,7 +43,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      pasien_id: {
+      pasienId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      dokterId: {
         type: Sequelize.INTEGER,
         allowNull: false
       },

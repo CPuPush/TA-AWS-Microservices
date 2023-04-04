@@ -53,6 +53,7 @@ module.exports = async (req, res) =>{
         email: user.email,
         role: user.role,
         jenis_kelamin: user.jenis_kelamin,
+        status: user.status
       }
     })
 

@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.refresh_pasien_token);
+      this.hasMany(models.tb_give_auth);
     }
   }
   pasien.init({

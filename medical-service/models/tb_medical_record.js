@@ -53,10 +53,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    pasien_id: {
+    pasienId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    dokterId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'tb_medical_record',

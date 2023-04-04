@@ -8,4 +8,6 @@ router.post('/', dokterController.getAllDokter);
 router.get('/:id', dokterController.getDokterById);
 router.post('/logout', dokterController.logout);
 
+router.get('/pasienAuth/:dokterId', dokterController.getPasienWithGivenAuth);
+
 module.exports = router;

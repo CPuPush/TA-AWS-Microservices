@@ -6,8 +6,8 @@ module.exports = async (req, res) => {
 
     const data = await tb_medical_record.findAll({
       where: {
-        pasien_id: pasien_id
-      }
+        pasienId: pasien_id,
+      },
     })
     if(!data){
       return res.status(404).json({

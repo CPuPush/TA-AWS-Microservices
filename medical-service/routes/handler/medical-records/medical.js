@@ -4,7 +4,7 @@ const v = new Validator();
 
 module.exports = async (req, res)=>{
   try {
-    const {pasien_id} = req.params;
+    const {pasienId} = req.params;
     const {
       nama,
       jenis_kelamin,
@@ -14,6 +14,7 @@ module.exports = async (req, res)=>{
       no_rekam_medis,
       tgl_pemeriksaan,
       tujuan_pemeriksaan,
+      dokterId
     } = req.body;
 
     const Schema = {
@@ -25,6 +26,7 @@ module.exports = async (req, res)=>{
       no_rekam_medis: "number|empty:false",
       tgl_pemeriksaan: "string|empty:false",
       tujuan_pemeriksaan: "string|empty:false",
+      dokterId: "number|empty:false"
     }
 
     const validate = v.validate(req.body, Schema);
@@ -44,7 +46,8 @@ module.exports = async (req, res)=>{
       no_rekam_medis,
       tgl_pemeriksaan,
       tujuan_pemeriksaan,
-      pasien_id
+      pasienId,
+      dokterId
     })
     return res.status(201).json({
       status: "success",
