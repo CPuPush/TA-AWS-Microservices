@@ -16,6 +16,10 @@ router.post('/pasien/login', pasienController.login);
 router.get('/pasien', authentication, authorizationPasien, pasienController.getPasienById);
 router.post('/pasien/logout', authentication, pasienController.logout);
 
+// ? give access to dokter
+router.post('/pasien/access-to-dokter', authentication, authorizationPasien, pasienController.giveAuth);
+router.delete('/pasien/delete-access-to-dokter', authentication, authorizationPasien, pasienController.deleteAuth);
+
 
 
 // ! DOKTER
@@ -24,6 +28,9 @@ router.post('/dokter/login', dokterController.login);
 router.get('/dokter', authentication, authorizationDokter, dokterController.getDokterById);
 router.post('/dokter', dokterController.getAllDokter);
 router.post('/dokter/logout', authentication, dokterController.logout);
+
+// ?given access to dokter
+router.get('/dokter/pasienAuth',authentication, authorizationDokter, dokterController.getPasienWithGivenAuth);
 
 // ! ADMIN
 router.post('/admin/login', adminController.login);

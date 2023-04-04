@@ -10,5 +10,5 @@ router.post('/logout', pasienController.logout);
 
 // give auth to dokter
 router.post('/access-to-dokter/:pasienId', pasienController.giveAuth);
-router.delete('/delete-access-to-dokter/:pasienId', pasienController.deleteAuth);
+router.post('/delete-access-to-dokter/:pasienId', pasienController.deleteAuth);
 module.exports = router;
