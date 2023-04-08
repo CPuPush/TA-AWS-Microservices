@@ -12,6 +12,13 @@ module.exports = {
       tbMedicalRecordId: {
         type: Sequelize.INTEGER,
         unique: true,
+        allowNull: false,
+        references: {
+          model: "tb_medical_records",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       jantung: {
         type: Sequelize.STRING
@@ -31,15 +38,6 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('tb_pemeriksaan_lainnyas', {
-      type: 'foreign key',
-      name: "PEMERIKSAAN LAINNYA_ID",
-      fields: ['tbMedicalRecordId'],
-      references: {
-        table: 'tb_medical_records',
-        field: 'id'
-      }
-    })
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('tb_pemeriksaan_lainnyas');
