@@ -34,9 +34,9 @@ router.get('/dokter/pasienAuth',authentication, authorizationDokter, dokterContr
 
 // ! ADMIN
 router.post('/admin/login', adminController.login);
-router.post('/admin/validation', authentication, adminController.dokterValidation);
-router.post('/admin/dokter', adminController.destroyDokter);
-router.post('/admin/logout', authentication, adminController.logout);
-
+router.post('/admin/validation', authentication, authorizationAdmin, adminController.dokterValidation);
+router.post('/admin/dokter', authentication, authorizationAdmin, adminController.destroyDokter);
+router.post('/admin/logout', authentication,authorizationAdmin, adminController.logout);
+router.get('/admin', authentication, authorizationAdmin, adminController.getAdminFromAuth);
 
 module.exports = router;
