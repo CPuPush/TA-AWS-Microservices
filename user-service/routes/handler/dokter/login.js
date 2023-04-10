@@ -41,7 +41,7 @@ module.exports = async (req, res) =>{
     if(!isValidPassword){
       return res.status(404).json({
         status: 'error',
-        message: 'password is wrong'
+        message: 'Login gagal. Email atau password salah.'
       })
     }
     return res.status(200).json({

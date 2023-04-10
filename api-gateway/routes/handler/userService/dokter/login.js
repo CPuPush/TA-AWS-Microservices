@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
     if(data.status === "menunggu" || data.status === "ditolak"){
       return res.status(403).json({
         status: "error",
-        message: "FORBIDDEN"
+        message: "Maaf, status Anda masih menunggu/ditolak. Silakan hubungi admin untuk informasi lebih lanjut."
       })
     }
     const token = jwt.sign({
