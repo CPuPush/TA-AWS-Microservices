@@ -22,7 +22,13 @@ module.exports = async (req, res) => {
       "jenis_kelamin": "laki-laki"
     }
     */
-
+    console.log(data);
+    if(data.status === "menunggu" || data.status === "ditolak"){
+      return res.status(403).json({
+        status: "error",
+        message: "FORBIDDEN"
+      })
+    }
     const token = jwt.sign({
       // payload
       data
