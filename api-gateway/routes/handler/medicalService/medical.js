@@ -18,21 +18,8 @@ module.exports = async (req, res) => {
       dokterId
     }
     const data = await apis.get(`${URL_USER_SERVICE}/dokter/pasienAuth/${dokterId}`);
-    // console.log(data.data.data.length);
-    // for(let i =0; i < data.data.data.length; i++){
-    //   if(data.data.data[i].pasienId !== pasienId){
-    //     return res.status(403).json({
-    //       status: "error",
-    //       message: "Authorization not given from pasien"
-    //     })
-    //   }
-    // }
-    // console.log(data.data.data.length);
-    // if(data.data.data[0])
-    // console.log(data.data.data);
     let trigger = false;
     for(let i=0; i < data.data.data.length; i++){
-      // console.log(data.data.data[i].pasienId + "test");
       if(data.data.data[i].pasienId == pasienId){
         trigger = true;
         break
