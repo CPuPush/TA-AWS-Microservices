@@ -14,6 +14,7 @@ router.post('/kesimpulan/:tbMedicalRecordId', authentication, authorizationDokte
 router.get('/:tbMedicalRecordId', medicalController.getMedical)
 
 router.get('/data/medical', authentication, medicalController.getMedicalByPasienId);
+router.get('/data/medical/:pasienId', authentication, medicalController.getMedicalByPasienIdforDokter);
 
 
 
