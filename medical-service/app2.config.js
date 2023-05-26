@@ -1,6 +1,6 @@
 module.exports = {
   name: 'app2',
-  script: 'npm start-prod',
+  script: 'npm run start-pro',
   instances: 1,
   autorestart: true,
   watch: false,
