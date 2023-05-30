@@ -1,9 +1,10 @@
-const register = require('./register');
-const login = require('./login');
-const getPasienById = require('./getPasienById');
-const logout = require('./logout');
-const giveAuth = require('./giveAuth');
-const deleteAuth = require('./deleteAuth');
+const register = require("./register");
+const login = require("./login");
+const getPasienById = require("./getPasienById");
+const logout = require("./logout");
+const giveAuth = require("./giveAuth");
+const deleteAuth = require("./deleteAuth");
+const getAllDokterAuth = require("./getAllDokterAuth");
 
 module.exports = {
   register,
@@ -11,5 +12,6 @@ module.exports = {
   getPasienById,
   logout,
   giveAuth,
-  deleteAuth
+  deleteAuth,
+  getAllDokterAuth,
 };
