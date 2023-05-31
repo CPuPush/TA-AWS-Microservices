@@ -114,7 +114,7 @@ module.exports = {
       leukosit_urine: {
         type: Sequelize.STRING
       },
-      eritrosit: {
+      eritrosit_urine: {
         type: Sequelize.STRING
       },
       silinder: {

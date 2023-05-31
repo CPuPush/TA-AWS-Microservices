@@ -112,7 +112,7 @@ module.exports = (sequelize, DataTypes) => {
     leukosit_urine: {
       type: DataTypes.STRING
     },
-    eritrosit: {
+    eritrosit_urine: {
       type: DataTypes.STRING
     },
     silinder: {
