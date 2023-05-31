@@ -5,6 +5,7 @@ const logout = require('./logout');
 const getAllPasien = require('./getAllPasien');
 const giveAuth = require('./giveAuth');
 const deleteAuth = require('./deleteAuth');
+const getAllDokterAuth = require('./getAllDokterAuth');
 
 module.exports = {
   register,
@@ -14,4 +15,5 @@ module.exports = {
   getAllPasien,
   giveAuth,
   deleteAuth,
+  getAllDokterAuth
 };

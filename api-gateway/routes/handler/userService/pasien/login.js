@@ -1,5 +1,5 @@
-const apiAdapter = require("../../../apiAdapter");
-const jwt = require("jsonwebtoken");
+const apiAdapter = require('../../../apiAdapter');
+const jwt = require('jsonwebtoken')
 const {
   URL_USER_SERVICE,
   JWT_SECRET,
@@ -23,49 +23,41 @@ module.exports = async (req, res) => {
     }
     */
 
-    const token = jwt.sign(
-      {
-        // payload
-        data,
-      },
-      JWT_SECRET,
-      {
-        expiresIn: JWT_ACCESS_TOKEN_EXPIRED,
-      }
-    );
+    const token = jwt.sign({
+      // payload
+      data
+    }, JWT_SECRET, {
+      expiresIn: JWT_ACCESS_TOKEN_EXPIRED
+    });
 
-    const refreshToken = jwt.sign(
-      {
-        data,
-      },
-      JWT_SECRET_REFRESH_TOKEN,
-      {
-        expiresIn: JWT_REFRESH_TOKEN_EXPIRED,
-      }
-    );
+    const refreshToken = jwt.sign({
+      data
+    }, JWT_SECRET_REFRESH_TOKEN,{
+      expiresIn: JWT_REFRESH_TOKEN_EXPIRED
+    })
 
     // simpan data to refresh_pasien_tokens
     await api.post(`${URL_USER_SERVICE}/refresh-token/pasien`, {
       pasienId: data.id,
-      refresh_token: refreshToken,
-    });
+      refresh_token: refreshToken
+    })
 
     return res.json({
-      status: "success",
+      status: 'success',
       data: {
         token,
         refreshToken,
-        user: data,
-      },
-    });
+        user : data
+      }
+    })
   } catch (error) {
-    if (error.code == "ECONNREFUSED") {
+    if(error.code == 'ECONNREFUSED'){
       return res.status(500).json({
-        status: "error",
-        message: "service unavailable",
-      });
-    } else {
-      const { status, data } = error.response;
+        status: 'error',
+        message: 'service unavailable'
+      })
+    }else{
+      const {status, data} = error.response;
       return res.status(status).json(data);
     }
   }
