@@ -16,11 +16,11 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": `${process.env.DB_USERNAME}`,
-    "password": `${process.env.DB_PASSWORD}`,
-    "database": `${process.env.DB_NAME}`,
-    "port": `${process.env.DB_PORT}`,
-    "host": `${process.env.DB_HOST}`,
+    "username": `${process.env.DB_USERNAME_PRO}`,
+    "password": `${process.env.DB_PASSWORD_PRO}`,
+    "database": `${process.env.DB_NAME_PRO}`,
+    "port": `${process.env.DB_PORT_PRO}`,
+    "host": `${process.env.DB_HOST_PRO}`,
     "dialect": "postgres"
   }
 }
