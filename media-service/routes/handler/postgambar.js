@@ -1,10 +1,35 @@
 const {tb_media} = require('../../models');
-
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const isBase64 = require('is-base64');
 const base64Img = require('base64-img');
 
+const {
+  BUCKET_NAME,
+  BUCKET_REGION,
+  ACCESS_KEY,
+  SECRET_ACCESS_KEY
+} = process.env;
+
+const s3 = new S3Client({
+  credentials: {
+    accessKeyId: ACCESS_KEY,
+    secretAccessKey: SECRET_ACCESS_KEY,
+  },
+  region: BUCKET_REGION,
+})
 module.exports = async (req, res) => {
-  try {
+  const params = {
+    Bucket: BUCKET_NAME,
+    Key: req.file.originalname,
+    Body: req.file.buffer,
+    ContentType: req.file
+  }
+  const command = new PutObjectCommand(params)
+};
+
+
+/*
+try {
     const {tbMedicalRecordId} = req.params;
     const {image} = req.body
     if(!isBase64(image, {mimeRequired: true})){
@@ -43,4 +68,4 @@ module.exports = async (req, res) => {
   } catch (error) {
     return res.status(500).json(error);
   }
-};
+*/
