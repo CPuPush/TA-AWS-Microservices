@@ -11,7 +11,7 @@ router.post('/pemeriksaan-fisik/:tbMedicalRecordId', authentication, authorizati
 router.post('/laboratorium/:tbMedicalRecordId', authentication, authorizationDokter, medicalController.laboratorium);
 router.post('/pemeriksaan-lainnya/:tbMedicalRecordId', authentication, authorizationDokter, medicalController.pemeriksaanLainnya);
 router.post('/kesimpulan/:tbMedicalRecordId', authentication, authorizationDokter, medicalController.kesimpulan);
-router.get('/:tbMedicalRecordId', medicalController.getMedical)
+router.get('/:tbMedicalRecordId', medicalController.getMedical);
 
 router.get('/data/medical', authentication, medicalController.getMedicalByPasienId);
 router.get('/data/medical/:pasienId', authentication, medicalController.getMedicalByPasienIdforDokter);
