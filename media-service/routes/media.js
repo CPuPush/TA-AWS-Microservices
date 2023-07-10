@@ -31,6 +31,7 @@ router.post('/:tbMedicalRecordId', upload.single('file'), async (req, res) => {
   try {
     const {tbMedicalRecordId} = req.params;
     const file = req.file;
+    console.log(file);
 
     const randomImageName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex');
     const keys = randomImageName();
